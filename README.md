@@ -2,12 +2,14 @@
 
 ## アーカイブの初期設定
 
-1. qiita-cliをインストールする
+1. `qiita-cli`をインストールする
 
   ```shell
   npm install @qiita/qiita-cli --save-dev
   ```
-2. https://qiita.com/settings/applications からtokenを取得する
+2. https://qiita.com/settings/applications からtokenを取得する。
+  > [!NOTE]
+  > `qiita-cli`経由で編集する予定がないならread-onlyトークンで良い。
 3. tokenでCLI経由でログインして記事を取得
 
   ```
