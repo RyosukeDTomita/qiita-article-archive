@@ -17,3 +17,7 @@
   npx qiita pull
   ls public/
   ```
+
+## GitHub Actionsの設定
+
+1. リポジトリのSettings > Secrets and variables > Actionsに移動し、`QIITA_TOKEN`を設定する。
