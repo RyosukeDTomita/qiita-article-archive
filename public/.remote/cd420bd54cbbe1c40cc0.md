@@ -1,5 +1,5 @@
 ---
-title: 「Clineに全部賭ける」勇気がでないのでGitHub Copilot Agentでお安く試してみる
+title: 「Clineに全部賭ける」勇気がでないのでGitHub Copilot Agentでお安く試してみる 2025年4月追記
 tags:
   - GitHub
   - githubcopilot
@@ -7,7 +7,7 @@ tags:
   - AIAgent
   - cline
 private: false
-updated_at: '2025-02-27T02:38:55+09:00'
+updated_at: '2025-04-05T18:36:56+09:00'
 id: cd420bd54cbbe1c40cc0
 organization_url_name: nri
 slide: false
@@ -35,9 +35,24 @@ https://zenn.dev/mizchi/articles/all-in-on-cline
 
 前置きが長くなってしまったが，とりあえずお安くAIエージェントと遊ぶために[GitHub Copilot AGENT MODE](https://github.blog/jp/2025-02-07-github-copilot-the-agent-awakens/)を使った際の防備録としてこの記事を書いた。
 
+:::note info
+2025年4月4日にVS Code version 1.99がリリースされ公式にAI Agentが使用できるようになったので記載内容を多少改定した。
+[version 1.99リリースノート](https://code.visualstudio.com/updates/v1_99)
+:::
+
 ---
 
 ## 環境構築方法
+
+2025年4月4日以前はVS CodeのInsider版のみのサポートであったが，現在はStableバージョンのVS CodeとGitHub CopilotでAI Agentを使用できる。
+
+### VS Codeインストール/アップデート
+
+VS Codeをインストール or version 1.99以上にアプデする。
+
+#### 旧手順: VS Code Insider版のインストール
+
+<details><summary>Insiderでみ，AIエージェントがサポートされていた頃の旧手順</summary>
 
 ### VSCodeのInsiders版をインストール
 
@@ -60,6 +75,21 @@ AGENT MODEに切り替えるにはまず，GitHub Copilot Chatの画面から，
 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3718390/db7ecb90-9f65-4678-b4a7-89a5af958e79.png)
 3. AGENT MODEに切り替え
 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3718390/a308f114-36ca-4aa3-af92-a7698c78030f.png)
+</details>
+
+### AGENT MODEを有効化する
+
+settings.jsonに`"chat.agent.enabled": true,`を追加することでAgentが有効化される。
+
+```settings.json
+  "chat.agent.enabled": true,
+```
+
+:::note info
+GUIからでも設定できる。Chat AgentをEnabledに変更。
+
+![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3718390/11636d99-63a2-463e-b678-8e5f7c977d8b.png)
+:::
 
 ---
 
@@ -79,15 +109,23 @@ AGENT MODEに切り替えるにはまず，GitHub Copilot Chatの画面から，
 
 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3718390/9e36beb3-4df4-427d-91fc-393fc968cb71.png)
 
-[Introducing GitHub Copilot agent mode (preview)](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode)によると，
+~~[Introducing GitHub Copilot agent mode (preview)](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode)によると，~~
 
-> To easily intervene and undo in those situations, every tool invocation is transparently displayed in the UI, terminal tool requires approval
+> ~~To easily intervene and undo in those situations, every tool invocation is transparently displayed in the UI, terminal tool requires approval~~
 
-とあるので許可をオフにする設定は2025年2月27日現在はないようだ。
+~~とあるので許可をオフにする設定は2025年2月27日現在はないようだ。~~
+
+2025年4月5日現在はYOLO Modeが追加されている。
+YOLOモードを有効にするとユーザの承認なしでコマンドを実行できるようになるのでClineほどではないが，ある程度ほったらかしてもAI Agentが作業を進められるようになった。
+
+```settings.json
+  "chat.tools.autoApprove": true, // YOLO
+```
 
 :::note info
-無理やりお願いしてみたがだめだった。
-![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3718390/646e9dac-62c2-4406-b3e7-33efcb0fac84.png)
+GUIでのYOLO Mode有効化方法も一応記載
+![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3718390/d18ae1fe-bb97-4685-bd4b-dc184ba372a2.png)
+
 :::
 
 ### 3. TDDをやってみる
@@ -134,8 +172,8 @@ GitHub Copilotの場合`.github/copilot-instructions.md`というのがこれに
 
 ## まとめと感想
 
-- Clineと違ってコマンドの承認が必要な点を考慮するとまだ，AIに任せる度合いは少なめではある。
-- APIを叩くたびに課金されないので安心して使えるので，とりあえず試してAIエージェントに慣れるのは良さそう。
+- ~~Clineと違ってコマンドの承認が必要な点を考慮するとまだ，AIに任せる度合いは少なめではある。~~　StableバージョンにYOLOモードが追加されたので期待できる。
+- APIを叩くたびに課金されないので安心して使える。とりあえず試してAIエージェントに慣れるのは良さそう。
 - copilot-instructions.mdを書くことである程度制御ができそうなので，これの書き方には研究の余地がありそう。
 
 ---
