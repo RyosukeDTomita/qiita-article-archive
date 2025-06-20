@@ -2,7 +2,7 @@ name: Daily Qiita Pull
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight
+    - cron: '0 0 * * *' # Runs every day at 09 JTC
 
 jobs:
   pull:
@@ -10,12 +10,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '14'
+        node-version: '22'
 
     - name: Install dependencies
       run: npm install
@@ -36,7 +36,7 @@ jobs:
         git commit -m 'Daily Qiita articles update' || echo "No changes to commit"
 
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ secrets.PR_GITHUB_TOKEN }}
         commit-message: 'Daily Qiita articles update'
