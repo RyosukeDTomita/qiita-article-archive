@@ -20,10 +20,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Login to Qiita
-      env:
-        QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
-      run: npx qiita login --token $QIITA_TOKEN
+    - name: Create .env file
+      run: echo "QIITA_TOKEN=${{ secrets.QIITA_TOKEN }}" > .env
 
     - name: Pull Qiita articles
       run: npx qiita pull
