@@ -1,13 +1,13 @@
 ---
-title: 'LTをやる時に気をつけること、実施したいことまとめ #随時更新'
+title: 'LTをやる時に気をつけること、実施したいことの個人的まとめ #随時更新'
 tags:
   - メモ
   - ポエム
   - LT
 private: false
-updated_at: '2025-07-14T15:36:54+09:00'
+updated_at: '2025-07-15T23:20:03+09:00'
 id: 13f8abbb8ee3d60ffe08
-organization_url_name: null
+organization_url_name: nri
 slide: false
 ignorePublish: false
 ---
