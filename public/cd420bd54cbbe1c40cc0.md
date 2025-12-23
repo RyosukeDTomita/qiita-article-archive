@@ -2,7 +2,7 @@
 title: 「Clineに全部賭ける」勇気がでないのでGitHub Copilot Agentでお安く試してみる 2025年4月追記
 tags:
   - GitHub
-  - githubcopilot
+  - GitHubCopilot
   - 生成AI
   - AIAgent
   - cline
